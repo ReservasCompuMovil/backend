@@ -44,6 +44,8 @@ public class JwtFilter extends OncePerRequestFilter {
             return;
         }
 
+
+
         String username = jwtService.getUsername(decodedJWT);
         String rolString = decodedJWT.getClaim("rol").asString();
         GrantedAuthority rol  = new SimpleGrantedAuthority(rolString);
