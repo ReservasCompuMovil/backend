@@ -6,7 +6,9 @@ import lombok.Data;
 public class ReservaDTO {
     private Integer id;
     private Integer usuarioId;
+    private String usuarioNombre;
     private Integer espacioId;
+    private String espacioNombre;
     private java.time.LocalDate fechaReserva;
     private java.time.LocalTime horaInicio;
     private java.time.LocalTime horaFin;

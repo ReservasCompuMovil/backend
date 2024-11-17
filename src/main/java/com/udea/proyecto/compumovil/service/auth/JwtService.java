@@ -41,6 +41,7 @@ public class JwtService {
                 .withSubject(usuario.getNombre())
                 .withClaim("rol", rol)
                 .withClaim("nombre", usuario.getNombre())
+                .withClaim("id_usuario", usuario.getId())
                 .withIssuedAt(new Date(System.currentTimeMillis()))
                 .withExpiresAt(new Date(System.currentTimeMillis() + Long.parseLong(timeExpiration)))
                 .withJWTId("JWT-" + usuario.getCorreo())

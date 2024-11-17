@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Getter
@@ -38,6 +39,9 @@ public class Usuario implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(name = "rol")
     private RoleEnum rol;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reserva> reservas = new ArrayList<>();
 
 
     //metodos de la interfaz UserDetails

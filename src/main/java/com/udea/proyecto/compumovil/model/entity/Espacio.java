@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "espacio")
 @Data
@@ -30,4 +33,8 @@ public class Espacio {
 
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
+
+    @OneToMany(mappedBy = "espacio", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reserva> reservas = new ArrayList<>();
+
 }
