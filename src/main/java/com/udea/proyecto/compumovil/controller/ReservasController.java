@@ -38,6 +38,12 @@ public class ReservasController {
         }
     }
 
+    @GetMapping("/entradaString/{entradaString}")
+    public void entradaString(@PathVariable String entradaString) {
+        System.out.println(entradaString);
+    }
+
+
     @GetMapping("/usuario/{usuarioId}")
     public ResponseEntity<List<ReservaDTO>> reservasDeUsuarioEspecifico(@PathVariable Integer usuarioId) {
         List<ReservaDTO> reservas = reservaService.reservasDeUsuarioEspecifico(usuarioId);
