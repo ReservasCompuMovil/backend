@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -40,7 +41,13 @@ public class ReservasController {
 
     @GetMapping("/entradaString/{entradaString}")
     public void entradaString(@PathVariable String entradaString) {
-        System.out.println(entradaString);
+        byte[] decodedBytes = Base64.getDecoder().decode(entradaString);
+
+        // Convertir a cadena legible
+        String decodedString = new String(decodedBytes);
+
+        // Imprimir la cadena decodificada
+        System.out.println("Cadena decodificada: " + decodedString);
     }
 
 
